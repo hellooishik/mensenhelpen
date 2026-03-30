@@ -22,20 +22,12 @@
 	<header id="masthead" class="site-header">
 		<div class="container site-header-wrapper">
 			<div class="site-branding">
-				<?php
-				if ( has_custom_logo() ) {
-					the_custom_logo();
-				} else {
-					?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php
-					$mensenhelpen_description = get_bloginfo( 'description', 'display' );
-					if ( $mensenhelpen_description || is_customize_preview() ) :
-						?>
-						<p class="site-description screen-reader-text"><?php echo $mensenhelpen_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-					<?php endif;
-				}
-				?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-logo-group" rel="home">
+					<div class="header-logo-icon">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+					</div>
+					<span>MensenHelpen</span>
+				</a>
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">

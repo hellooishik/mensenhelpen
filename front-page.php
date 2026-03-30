@@ -69,10 +69,16 @@ get_header();
 			if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 				foreach ( $categories as $cat ) {
 					$term_link = get_term_link( $cat );
-					echo '<a href="' . esc_url( $term_link ) . '" class="category-card glass-panel">';
-					echo '<h3>' . esc_html( $cat->name ) . '</h3>';
-					echo '<span class="cat-count">' . esc_html( $cat->count ) . ' products</span>';
-					echo '</a>';
+					$cat_image = mensenhelpen_get_category_image( $cat->name );
+					?>
+					<a href="<?php echo esc_url( $term_link ); ?>" class="category-card" style="background-image: url('<?php echo esc_url( $cat_image ); ?>');">
+						<div class="category-card-overlay"></div>
+						<div class="category-card-content">
+							<h3><?php echo esc_html( $cat->name ); ?></h3>
+							<span class="cat-count"><?php echo esc_html( $cat->count ); ?> products</span>
+						</div>
+					</a>
+					<?php
 				}
 			} else {
 				echo '<p>Categories coming soon.</p>';
@@ -122,7 +128,7 @@ get_header();
 			<?php
 			$testimonials = new WP_Query( array(
 				'post_type'      => 'testimonial',
-				'posts_per_page' => 3,
+				'posts_per_page' => 1, // Focus on one strong testimonial for impact
 			) );
 
 			if ( $testimonials->have_posts() ) {
@@ -130,21 +136,29 @@ get_header();
 					$testimonials->the_post();
 					?>
 					<div class="testimonial-card">
-						<?php if ( has_post_thumbnail() ) {
-							echo '<div class="testimonial-avatar">';
-							the_post_thumbnail( 'thumbnail' );
-							echo '</div>';
-						} ?>
 						<div class="testimonial-content">
 							"<?php echo esc_html( wp_strip_all_tags( get_the_content() ) ); ?>"
 						</div>
-						<div class="testimonial-author">- <?php the_title(); ?></div>
+						<div class="testimonial-author-meta">
+							<div class="testimonial-author"><?php the_title(); ?></div>
+							<div class="testimonial-verified">Verified Reviewer</div>
+						</div>
 					</div>
 					<?php
 				}
 				wp_reset_postdata();
 			} else {
-				echo '<p class="text-center">"I love getting to try new skincare routines before committing!" - Sarah K.</p>';
+				?>
+				<div class="testimonial-card">
+					<div class="testimonial-content">
+						"I love getting to try new skincare routines before committing! MensenHelpen has completely changed how I discover brands."
+					</div>
+					<div class="testimonial-author-meta">
+						<div class="testimonial-author">Sarah K.</div>
+						<div class="testimonial-verified">Verified Reviewer</div>
+					</div>
+				</div>
+				<?php
 			}
 			?>
 		</div>

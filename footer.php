@@ -4,7 +4,7 @@
 		<div class="container footer-widgets">
 			<div class="footer-widget-area">
 				<h3 class="widget-title">MensenHelpen</h3>
-				<p>Connecting brands with real users. Try free products, share your honest feedback, and help shape the future of your favorite categories.</p>
+				<p>The leading platform for product discovery and real user feedback. We help you try the best brands for free while providing honest reviews to the community.</p>
 			</div>
 			
 			<div class="footer-widget-area">
@@ -37,7 +37,7 @@
 		</div>
 		
 		<div class="site-info container">
-			<p>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.</p>
+			<p>&copy; <?php echo date( 'Y' ); ?> MensenHelpen. All rights reserved. Your voice, your impact.</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 

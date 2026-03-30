@@ -68,3 +68,19 @@ foreach ( $mensenhelpen_includes as $file ) {
 		require_once $filepath;
 	}
 }
+
+/**
+ * Get high-quality image for a category
+ */
+function mensenhelpen_get_category_image( $category_name ) {
+	$images = array(
+		'Skincare'      => 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
+		'Haircare'      => 'https://images.unsplash.com/photo-1522337660859-026c2438590d?auto=format&fit=crop&w=800&q=80',
+		'Wellness'      => 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
+		'Beauty Tools'  => 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80',
+		'Supplements'   => 'https://images.unsplash.com/photo-1584017945516-24ba7e44040a?auto=format&fit=crop&w=800&q=80',
+		'Body Care'     => 'https://images.unsplash.com/photo-1552046122-03184de85e08?auto=format&fit=crop&w=800&q=80',
+	);
+
+	return isset( $images[ $category_name ] ) ? $images[ $category_name ] : 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80';
+}
