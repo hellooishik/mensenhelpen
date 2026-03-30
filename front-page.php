@@ -149,11 +149,10 @@ get_header();
 			?>
 		</div>
 		<div class="brand-logos">
-			<!-- Placeholder for brand logos -->
-			<div class="brand-logo-item">Brand 1</div>
-			<div class="brand-logo-item">Brand 2</div>
-			<div class="brand-logo-item">Brand 3</div>
-			<div class="brand-logo-item">Brand 4</div>
+			<div class="brand-logo-item">AURA</div>
+			<div class="brand-logo-item">NATURELIFT</div>
+			<div class="brand-logo-item">PUREGLOW</div>
+			<div class="brand-logo-item">VITALITY</div>
 		</div>
 	</div>
 </section>
