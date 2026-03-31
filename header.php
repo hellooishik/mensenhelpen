@@ -23,39 +23,34 @@
 		<div class="container site-header-wrapper">
 			<div class="site-branding">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-logo-group" rel="home">
-					<div class="header-logo-icon">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-					</div>
-					<span>MensenHelpen</span>
+					MENSENHELPEN
 				</a>
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'mensenhelpen' ); ?></span>
-					<span class="hamburger-icon"></span>
-				</button>
 				<?php
 				wp_nav_menu(
 					array(
 						'theme_location' => 'primary',
 						'menu_id'        => 'primary-menu',
 						'container'      => false,
-						'fallback_cb'    => false, // Don't list pages if no menu
+						'fallback_cb'    => false,
 					)
 				);
 				?>
-				<div class="header-actions">
-					<?php if ( is_user_logged_in() ) : ?>
-						<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>" class="btn btn-outline">My Account</a>
-						<a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>" class="btn btn-text">Log Out</a>
-					<?php else : ?>
-						<!-- We will use a custom login/register later, linking to default for now -->
-						<a href="#register" class="btn btn-primary js-open-register">Sign Up Free</a>
-						<a href="#login" class="btn btn-outline js-open-login">Log In</a>
-					<?php endif; ?>
-				</div>
 			</nav><!-- #site-navigation -->
+
+			<div class="header-actions">
+				<a href="#" class="header-icon" aria-label="Search">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+				</a>
+				<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>" class="header-icon" aria-label="Profile">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+				</a>
+				<a href="#" class="header-icon" aria-label="Cart">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+				</a>
+			</div>
 		</div>
 	</header><!-- #masthead -->
 

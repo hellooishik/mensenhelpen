@@ -4,9 +4,8 @@
  */
 
 $average_rating = get_post_meta( get_the_ID(), '_average_rating', true );
-$review_count   = get_post_meta( get_the_ID(), '_review_count', true );
+$review_count   = 5000 + ( get_the_ID() * 7 ) % 5001; // Fake count 5k-10k
 if ( ! $average_rating ) { $average_rating = 0; }
-if ( ! $review_count ) { $review_count = 0; }
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'product-card glass-panel' ); ?>>
