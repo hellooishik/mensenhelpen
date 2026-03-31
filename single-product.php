@@ -19,40 +19,45 @@ get_header();
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-product-layout' ); ?>>
 			
 			<div class="product-top-row">
-				<div class="product-gallery glass-panel">
+				<div class="product-gallery">
 					<?php
 					if ( has_post_thumbnail() ) {
-						the_post_thumbnail( 'large', array( 'class' => 'img-fluid main-img' ) );
+						the_post_thumbnail( 'large', array( 'class' => 'main-img' ) );
 					} else {
-						echo '<div class="no-image-placeholder">No Image Available</div>';
+						echo '<div class="no-image-placeholder glass-panel" style="height: 500px; display: flex; align-items: center; justify-content: center; background: #eee; border-radius: 20px;">No Image Available</div>';
 					}
 					?>
 				</div>
 				
-				<div class="product-summary glass-panel">
-					<div class="product-brand-tags mb-2">
-						<?php echo get_the_term_list( get_the_ID(), 'brand', '<span class="post-brand badge">', '</span> <span class="post-brand badge">', '</span>' ); ?>
-						<?php echo get_the_term_list( get_the_ID(), 'product_cat', '<span class="post-cat badge badge-outline">', '</span> <span class="post-cat badge badge-outline">', '</span>' ); ?>
+				<div class="product-summary">
+					<div class="product-status-labels">
+						<span class="status-pill status-trending">Trending</span>
+						<span class="status-pill status-popular">High Demand</span>
+					</div>
+
+					<div class="product-brand-tags mb-3">
+						<?php echo get_the_term_list( get_the_ID(), 'brand', '<span class="post-brand">', '</span> <span class="post-brand">', '</span>' ); ?>
+						<?php echo get_the_term_list( get_the_ID(), 'product_cat', '<span class="post-cat">', '</span> <span class="post-cat">', '</span>' ); ?>
 					</div>
 					
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 					
-					<div class="product-rating mb-4">
+					<div class="product-rating mb-5">
 						<div class="stars" style="--rating: <?php echo esc_attr( $average_rating ); ?>;"></div>
-						<span class="rating-text"><?php echo esc_html( number_format( $average_rating, 1 ) ); ?> (<?php echo esc_html( $review_count ); ?> Reviews)</span>
+						<span class="rating-info"><?php echo esc_html( number_format( $average_rating, 1 ) ); ?> (<?php echo esc_html( $review_count ); ?> Reviews)</span>
 					</div>
 
-					<div class="product-content excerpt-area block-margin">
+					<div class="product-content block-margin" style="font-size: 1.1rem; line-height: 1.7; color: var(--text-light);">
 						<?php the_content(); ?>
 					</div>
 
-					<div class="product-actions mt-4">
+					<div class="product-actions mt-5">
 						<?php if ( is_user_logged_in() ) : ?>
-							<button class="btn btn-primary btn-large w-full" id="request-sample" data-product="<?php echo get_the_ID(); ?>">Request Free Sample</button>
+							<button class="btn btn-primary btn-large w-full btn-pulse" id="request-sample" data-product="<?php echo get_the_ID(); ?>" style="padding: 20px; font-size: 1.2rem;">Request Free Sample</button>
 						<?php else : ?>
-							<a href="#register" class="btn btn-primary btn-large w-full js-open-register">Log in to Request Sample</a>
+							<a href="#register" class="btn btn-primary btn-large w-full js-open-register" style="padding: 20px; font-size: 1.2rem;">Join now to Request Sample</a>
 						<?php endif; ?>
-						<p class="text-sm text-center mt-2 opacity-70">Samples are limited and subject to availability based on your profile.</p>
+						<p class="text-sm text-center mt-3 opacity-60">Samples are limited and subject to availability based on your profile.</p>
 					</div>
 				</div>
 			</div>

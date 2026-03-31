@@ -449,3 +449,120 @@ p { font-size: 1.05rem; opacity: 0.9; }
 }
 #loginform input[type="submit"]:hover { background: var(--primary-dark); }
 
+/* Single Product Advanced Page */
+.single-product-layout { display: flex; flex-direction: column; gap: 60px; }
+
+.product-top-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 80px;
+}
+
+@media (max-width: 1024px) {
+    .product-top-row { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.product-gallery {
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.main-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.main-img:hover { transform: scale(1.02); }
+
+.product-summary { padding: 40px; }
+
+.product-status-labels { display: flex; gap: 10px; margin-bottom: 20px; }
+.status-pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.status-trending { background: #fee2e2; color: #ef4444; }
+.status-popular { background: #dcfce7; color: #22c55e; }
+
+.product-brand-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.post-brand { background: var(--primary-color); color: white; padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; }
+.post-cat { background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); padding: 2px 10px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; }
+
+.entry-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 24px; font-weight: 900; color: var(--text-dark); }
+
+.product-rating { font-size: 1.1rem; color: var(--text-dark); font-weight: 700; }
+.rating-info { color: var(--text-light); font-weight: 500; margin-left: 10px; }
+
+/* Review Form & Interaction */
+.star-rating-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+.star-rating-input input { display: none; }
+.star-rating-input label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.star-rating-input label:before { content: '★'; }
+.star-rating-input input:checked ~ label,
+.star-rating-input label:hover,
+.star-rating-input label:hover ~ label { color: #ffca28; }
+
+/* Modern Review Cards */
+.review-card { padding: 32px; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+.avatar-circle {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+.review-pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: var(--radius-sm);
+}
+@media (max-width: 600px) { .review-pros-cons { grid-template-columns: 1fr; } }
+
+.pro-box, .con-box { display: flex; flex-direction: column; gap: 8px; }
+.pro-box h5 { color: #22c55e; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; }
+.con-box h5 { color: #ef4444; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; }
+
+.btn-pulse:hover {
+    animation: btn-pulse 1.5s infinite;
+}
+
+@keyframes btn-pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+    70% { transform: scale(1.02); box-shadow: 0 0 0 20px rgba(124, 58, 237, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+}
+
+
