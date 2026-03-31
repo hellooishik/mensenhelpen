@@ -37,6 +37,38 @@ get_header();
 	</div>
 </section>
 
+<!-- Featured Categories -->
+<section class="featured-categories section-padding bg-light">
+	<div class="container">
+		<h2 class="section-title text-center mb-5">Discover Our Categories</h2>
+		<div class="category-grid">
+			<?php
+			$categories = get_terms( array(
+				'taxonomy'   => 'product_cat',
+				'hide_empty' => false,
+				'number'     => 6,
+			) );
+
+			if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
+				foreach ( $categories as $cat ) {
+					$term_link = get_term_link( $cat );
+					$cat_image = mensenhelpen_get_category_image( $cat->name );
+					?>
+					<a href="<?php echo esc_url( $term_link ); ?>" class="category-card-pro" style="background-image: url('<?php echo esc_url( $cat_image ); ?>');">
+						<div class="category-overlay-pro"></div>
+						<div class="category-content-pro">
+							<h3><?php echo esc_html( $cat->name ); ?></h3>
+							<span class="cat-count"><?php echo esc_html( $cat->count ); ?> items</span>
+						</div>
+					</a>
+					<?php
+				}
+			}
+			?>
+		</div>
+	</div>
+</section>
+
 <!-- How it works -->
 <section class="how-it-works-section">
 	<div class="container">
@@ -63,6 +95,32 @@ get_header();
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Latest Products -->
+<section class="latest-products section-padding">
+	<div class="container">
+		<div class="section-header flex-between mb-5">
+			<h2 class="section-title">Latest Samples Available</h2>
+			<a href="<?php echo esc_url( get_post_type_archive_link( 'product' ) ); ?>" class="btn-text">View All <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 5px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+		</div>
+		<div class="products-grid">
+			<?php
+			$products_query = new WP_Query( array(
+				'post_type'      => 'product',
+				'posts_per_page' => 4,
+			) );
+
+			if ( $products_query->have_posts() ) {
+				while ( $products_query->have_posts() ) {
+					$products_query->the_post();
+					get_template_part( 'template-parts/content', 'product' );
+				}
+				wp_reset_postdata();
+			}
+			?>
 		</div>
 	</div>
 </section>

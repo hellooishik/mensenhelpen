@@ -9,18 +9,18 @@
     $(document).ready(function() {
         
         /* --- Modal Logic --- */
-        const $modals = $('.js-modal');
+        const $modals = $('.modal-overlay');
         const $modalClose = $('.js-modal-close');
         
         $('.js-open-register').on('click', function(e) {
             e.preventDefault();
-            // We'll use a specific register modal if we had one, but for now let's just open the login or alert
-            // For this demo, let's just use the login modal logic or similar
-            $('#login-modal').addClass('active');
+            $modals.removeClass('active'); // Close any open modal
+            $('#register-modal').addClass('active');
         });
 
         $('.js-open-login').on('click', function(e) {
             e.preventDefault();
+            $modals.removeClass('active'); // Close any open modal
             $('#login-modal').addClass('active');
         });
 
@@ -29,7 +29,7 @@
         });
 
         $(window).on('click', function(e) {
-            if ($(e.target).hasClass('modal')) {
+            if ($(e.target).hasClass('modal-overlay')) {
                 $modals.removeClass('active');
             }
         });

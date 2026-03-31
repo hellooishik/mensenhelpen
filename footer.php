@@ -41,10 +41,10 @@
 </div><!-- #page -->
 
 <!-- Login Modal -->
-<div class="modal overlay js-modal" id="login-modal" aria-hidden="true">
+<div class="modal-overlay js-modal" id="login-modal" aria-hidden="true">
 	<div class="modal-dialog">
 		<button class="modal-close js-modal-close" aria-label="Close modal">&times;</button>
-		<div class="modal-header text-center mb-4">
+		<div class="modal-header">
 			<h2>Welcome Back</h2>
 			<p>Sign in to your account</p>
 		</div>
@@ -56,10 +56,10 @@
 </div>
 
 <!-- Register Modal -->
-<div class="modal overlay js-modal" id="register-modal" aria-hidden="true">
+<div class="modal-overlay js-modal" id="register-modal" aria-hidden="true">
 	<div class="modal-dialog">
 		<button class="modal-close js-modal-close" aria-label="Close modal">&times;</button>
-		<div class="modal-header text-center mb-4">
+		<div class="modal-header">
 			<h2>Join MensenHelpen</h2>
 			<p>Start receiving free samples today</p>
 		</div>
