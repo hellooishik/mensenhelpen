@@ -20,7 +20,7 @@ $author = get_the_author();
 				<div class="review-date text-sm opacity-60"><?php echo get_the_date(); ?></div>
 			</div>
 		</div>
-		<div class="review-stars stars" style="--rating: <?php echo esc_attr( $rating ); ?>; font-size: 1.2rem;"></div>
+		<div class="stars" style="--rating: <?php echo esc_attr( $rating ); ?>;"></div>
 	</div>
 	
 	<h3 class="review-title mb-3" style="font-size: 1.4rem; font-weight: 800;"><?php the_title(); ?></h3>

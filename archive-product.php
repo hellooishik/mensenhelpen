@@ -6,21 +6,19 @@
 get_header();
 ?>
 
-<div class="page-header bg-gradient no-bottom-margin">
-	<div class="container text-center text-white">
+<div class="page-hero">
+	<div class="container">
 		<h1 class="page-title">Discover Free Samples</h1>
-		<p class="subtitle">Browse available products from top brands. Request samples and share your honest feedback.</p>
+		<p class="subtitle">Join thousands of members testing the latest beauty, tech, and lifestyle products daily.</p>
 	</div>
 </div>
 
-<div class="container section-padding product-archive-layout">
-	<!-- Sidebar Filters -->
-	<aside class="product-filters glass-panel">
-		<h3>Filters</h3>
-		
-		<div class="filter-group">
-			<h4>Category</h4>
-			<select id="filter-category" class="w-full js-filter-select">
+<div class="container section-padding">
+	<!-- Horizontal Toolbar -->
+	<header class="archive-toolbar">
+		<div class="filter-item">
+			<label for="filter-category">Category</label>
+			<select id="filter-category" class="filter-select js-filter-select">
 				<option value="0">All Categories</option>
 				<?php
 				$categories = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => false ) );
@@ -33,9 +31,9 @@ get_header();
 			</select>
 		</div>
 
-		<div class="filter-group">
-			<h4>Brand</h4>
-			<select id="filter-brand" class="w-full js-filter-select">
+		<div class="filter-item">
+			<label for="filter-brand">Brand</label>
+			<select id="filter-brand" class="filter-select js-filter-select">
 				<option value="0">All Brands</option>
 				<?php
 				$brands = get_terms( array( 'taxonomy' => 'brand', 'hide_empty' => false ) );
@@ -48,16 +46,20 @@ get_header();
 			</select>
 		</div>
 
-		<div class="filter-group">
-			<h4>Sort By</h4>
-			<select id="sort-products" class="w-full js-filter-select">
+		<div class="filter-item">
+			<label for="sort-products">Sort By</label>
+			<select id="sort-products" class="filter-select js-filter-select">
 				<option value="latest">Latest Added</option>
 				<option value="rating">Highest Rated</option>
 			</select>
 		</div>
 		
-		<button id="reset-filters" class="btn btn-outline w-full mt-3">Clear Filters</button>
-	</aside>
+		<div class="ml-auto">
+			<button id="reset-filters" class="btn-text" style="font-weight: 700; color: var(--primary-color);">Clear All Filters</button>
+		</div>
+	</header>
+
+	<!-- Product Grid Content -->
 
 	<!-- Product Grid Content -->
 	<main id="primary" class="site-main product-content-area">
