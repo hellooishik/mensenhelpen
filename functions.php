@@ -60,6 +60,7 @@ $mensenhelpen_includes = array(
 	'inc/user-roles-meta.php',   // User roles and meta management
 	'inc/ajax.php',              // AJAX handling
 	'inc/sample-data.php',       // Sample data generation
+	'inc/product-seeding.php',   // Mass product seeding (100 products)
 );
 
 foreach ( $mensenhelpen_includes as $file ) {
